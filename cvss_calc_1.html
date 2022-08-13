@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Common Vulnerability Scoring System Calculator</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="my-4 text-center">Common Vulnerability Scoring System Calculator</h1>
+        <div class="row">
+            <div class="col-12">
+                <div class="card bg-warning">
+                    <h4 class="card-header">Base Score Metrics</h4>
+                    <div class="card-body">
+                        <form id="form">
+                            <h4 class="card-title">Exploitability Metrics</h4>
+                            <div class="card-text">
+                            
+                                <h5 class="mt-3">Attack Vector (AV)*</h5>
+                                <div class="btn-group">
+                                    <input type="radio" class="btn-check" name="atv" id="atv_net" value="atv_net" autocomplete="off" checked />
+                                    <label class="btn btn-primary" for="atv_net">Network</label>
+                                  
+                                    <input type="radio" class="btn-check" name="atv" id="atv_an" value="atv_an" autocomplete="off" />
+                                    <label class="btn btn-primary" for="atv_an">Adjacent Network</label>
+                                  
+                                    <input type="radio" class="btn-check" name="atv" id="atv_lcl" value="atv_lcl" autocomplete="off" />
+                                    <label class="btn btn-primary" for="atv_lcl">Local</label>
+                                    
+                                    <input type="radio" class="btn-check" name="atv" id="atv_phy" value="atv_phy" autocomplete="off" />
+                                    <label class="btn btn-primary" for="atv_phy">Physical</label>
+                                </div>
+                                                                                    
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="mt-3">Attack Complexity (AC)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="ac" id="ac_low" value="ac_low" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="ac_low">Low</label>
+                                            <input type="radio" class="btn-check" name="ac" id="ac_high" value="ac_high" autocomplete="off" />
+                                            <label class="btn btn-primary" for="ac_high">High</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5 class="mt-3">Privileges Required (PR)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="pr" id="privileges_none" value="privileges_none" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="privileges_none">None</label>
+                                            
+                                            <input type="radio" class="btn-check" name="pr" id="privileges_low" value="privileges_low" autocomplete="off"/>
+                                            <label class="btn btn-primary" for="privileges_low">Low</label>
+                                        
+                                            <input type="radio" class="btn-check" name="pr" id="privileges_high" value="privileges_high" autocomplete="off" />
+                                            <label class="btn btn-primary" for="privileges_high">High</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5 class="mt-3">User Interaction (UI)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="ui" id="ui_none" value="ui_none" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="ui_none">None</label>
+                                        
+                                            <input type="radio" class="btn-check" name="ui" id="ui_req" value="ui_req" autocomplete="off" />
+                                            <label class="btn btn-primary" for="ui_req">Required</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5 class="mt-3">Scope (S)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="scp" id="scope_unc" value="scope_unc" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="scope_unc">Unchanged</label>
+                                            
+                                            <input type="radio" class="btn-check" name="scp" id="scope_ch" value="scope_ch" autocomplete="off"/>
+                                            <label class="btn btn-primary" for="scope_ch">Changed</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-4">
+                                    <h4 class="card-title">Impact Metrics</h4>
+                                    <div class="col-md-4">
+                                        <h5 class="mt-1">Confidentiality Impact (C)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="conf" id="confident_non" value="confident_non" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="confident_non">None</label>
+                                        
+                                            <input type="radio" class="btn-check" name="conf" id="confident_low" value="confident_low" autocomplete="off" />
+                                            <label class="btn btn-primary" for="confident_low">Low</label>
+                                            
+                                            <input type="radio" class="btn-check" name="conf" id="confident_high" value="confident_high" autocomplete="off" />
+                                            <label class="btn btn-primary" for="confident_high">High</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5 class="mt-1">Integrity Impact (I)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="igi" id="integrity_non" value="integrity_non" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="integrity_non">None</label>
+                                            
+                                            <input type="radio" class="btn-check" name="igi" id="integrity_low" value="integrity_low" autocomplete="off"/>
+                                            <label class="btn btn-primary" for="integrity_low">Low</label>
+                                            
+                                            <input type="radio" class="btn-check" name="igi" id="integrity_high" value="integrity_high" autocomplete="off"/>
+                                            <label class="btn btn-primary" for="integrity_high">High</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h5 class="mt-1">Availability Impact (A)*</h5>
+                                        <div class="btn-group">
+                                            <input type="radio" class="btn-check" name="avi" id="availability_non" value="availability_non" autocomplete="off" checked />
+                                            <label class="btn btn-primary" for="availability_non">None</label>
+                                        
+                                            <input type="radio" class="btn-check" name="avi" id="availability_low" value="availability_low" autocomplete="off" />
+                                            <label class="btn btn-primary" for="availability_low">Low</label>
+                                            
+                                            <input type="radio" class="btn-check" name="avi" id="availability_high" value="availability_high" autocomplete="off" />
+                                            <label class="btn btn-primary" for="availability_high">High</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 mt-3">
+                                <button class="btn btn-danger btn-lg" type="submit">Calculate</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div id="answer" class="display-5 p-2" style="height: 300px; border: 2px solid black; border-radius: 10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+
+        function attack_vector(atv) {
+            if(atv === "atv_net"){
+                return 0.85
+            }else if(atv === "atv_an"){
+                return 0.62
+            }else if(atv === "atv_lcl"){
+                return 0.55
+            }else if(atv === "atv_phy"){
+                return 0.2
+            }
+        }
+        
+        function attack_complex_value(ac) {
+            if(ac === "ac_low"){
+                return 0.77
+            }else if(ac === "ac_high"){
+                return 0.44
+            }
+        }
+        
+        function privileges_value(pr, scope) {
+            if(pr === "privileges_none"){
+                return 0.85
+            }else if(pr === "privileges_low" && scope === 'scope_unc'){
+                return 0.62
+            }else if(pr === "privileges_low" && scope === 'scope_ch'){
+                return 0.68
+            }else if(pr === "privileges_high" && scope === 'scope_unc'){
+                return 0.27
+            }else if(pr === "privileges_high" && scope === 'scope_ch'){
+                return 0.5
+            }
+        }
+        
+        function user_interface_val(ui) {
+            if(ui === "ui_none"){
+                return 0.85
+            }else if(ui === "ui_req"){
+                return 0.62
+            }
+        }
+
+        function impact_metrics(cia) {
+            if(cia === "confident_non" || cia === "integrity_non" || cia === "availability_non"){
+                return 0
+            }else if(cia === "confident_low" || cia === "integrity_low" || cia === "availability_low"){
+                return 0.22
+            }else if(cia === "confident_high" || cia === "integrity_high" || cia === "availability_high"){
+                return 0.56
+            }
+        }
+
+        $( "#form" ).submit(function( event ) {
+            event.preventDefault();
+            let res = $('form').serializeArray();
+
+            let atv = attack_vector(res[0].value);
+            let ac = attack_complex_value(res[1].value);
+
+            let scp = res[4].value;
+            let pr = privileges_value(res[2].value, scp);
+
+            let ui = user_interface_val(res[3].value);
+
+            let conf = impact_metrics(res[5].value);
+            let igi = impact_metrics(res[6].value);
+            let avi = impact_metrics(res[7].value);
+
+            let iss = 1 - ((1-conf)*(1-igi)*(1-avi));
+
+            let impact = 0;
+            if(scp === 'scope_unc') {
+                impact = 6.42 * iss;
+            }else if(scp === 'scope_ch') {
+                impact = 7.52 * (iss - 0.029) - 3.25 * Math.pow((iss - 0.02),15);
+            }
+
+            let exploit = 8.22 * atv * ac * pr * ui;
+            
+
+            let html = 'Impact SubScore: '+iss+'<br>Impact: '+impact+'<br>Exploitability: '+exploit+'<br>CVSS base score: '+(impact+exploit);
+            $('#answer').html(html);
+            
+        });
+    </script>
+</body>
+
+</html>
